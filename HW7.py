@@ -106,21 +106,21 @@ def make_players_table(data, cur, conn):
     # and returns a list of tuples. Each tuple contains:
         # the player's name, their position_id, and their nationality.
 
-# def nationality_search(countries, cur, conn):
-#     # Join the list of countries into a comma-separated string
-#     country_string = ','.join(['?' for _ in countries])
+def nationality_search(countries, cur, conn):
+    # Join the list of countries into a comma-separated string
+    country_string = ','.join(['?' for _ in countries])
 
-#     # Query the database for all players with nationalities in the list of countries
-#     query = f"""
-#         SELECT Players.name, Players.position_id, Players.nationality
-#         FROM Players
-#         WHERE Players.nationality IN ({country_string})
-#     """
-#     cur.execute(query, countries)
-#     rows = cur.fetchall()
+    # Query the database for all players with nationalities in the list of countries
+    query = f"""
+        SELECT Players.name, Players.position_id, Players.nationality
+        FROM Players
+        WHERE Players.nationality IN ({country_string})
+    """
+    cur.execute(query, countries)
+    rows = cur.fetchall()
 
-#     # Return the list of tuples containing the player information
-#     return rows
+    # Return the list of tuples containing the player information
+    return rows
 
 
 ## [TASK 3]: 10 points
